@@ -43,4 +43,61 @@ Whether you're brushing up before interviews or preparing for contests, this rep
 ---
 
 ## 🧩 Structure
+/DSA-Repo
+│
+├── Arrays/
+├── LinkedList/
+├── Trees/
+├── Graphs/
+├── DynamicProgramming/
+├── Greedy/
+├── Recursion/
+├── BitManipulation/
+├── SortingSearching/
+├── InterviewSheets/
+├── README.md
+
+
+---
+
+## ✨ Highlights
+
+- 🔍 **Detailed Explanations** for tricky problems
+- 🧪 **Test Cases** included where applicable
+- 💡 **Optimized Solutions** with complexity analysis
+- 📌 **Topic Tags** to quickly find related problems
+- 🎯 **Progress Tracker** for goal setting
+
+---
+
+## 🌱 Learning Sources
+
+- [Leetcode](https://leetcode.com/)
+- [GeeksForGeeks](https://www.geeksforgeeks.org/)
+- [Striver SDE Sheet](https://takeuforward.org/)
+- [Codeforces](https://codeforces.com/)
+- [InterviewBit](https://www.interviewbit.com/)
+
+---
+
+## 🙋‍♂️ Author
+
+> **Shubham**  
+> Student | DSA Enthusiast | Problem Solver  
+> 🚀 *"Code. Learn. Repeat."*
+
+---
+
+## ⭐ Star & Fork
+
+If you find this repository helpful, feel free to ⭐ **star** and 🍴 **fork** it!  
+Pull requests and issue suggestions are welcome 😊
+
+---
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com/?lines=Happy+Coding!;Keep+Solving+and+Learning!&center=true&width=380&height=45">
+</p>
+
+
 

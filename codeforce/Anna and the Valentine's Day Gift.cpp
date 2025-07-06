@@ -55,9 +55,6 @@ int main() {
             /*
             Count Trailing Zeros (tz)
 For "5000":
-sql
-Copy
-Edit
 Index:        0    1    2    3
 Character:   '5'  '0'  '0'  '0'
                        ↑
@@ -80,16 +77,14 @@ For "123":
 
 Result: tz = 0 ✅
 
-For "40":
-'0' → tz = 1
-
+For "4":
 '4' → stop
 
 Result: tz = 1 ✅
 
-trailing_zeros = [3, 1, 0, 1]
-trailing_zeros → sort descending → [3, 1, 1, 0]
+trailing_zeros = [3, 1, 0, 0]
+trailing_zeros → sort descending → [3, 1, 0, 0]
 
-4 (5000) + 2 (30) + 3 (123) + 2 (40) = 11
+4 (5000) + 2 (30) + 3 (123) + 2 (4) = 11
 11 - (3 + 1) = 7 digits left
             */

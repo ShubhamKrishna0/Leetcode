@@ -56,8 +56,3 @@ class ArrayQueue {
         return (currSize == 0);
     }
 };
-
-int main () {
-    ArrayQueue queue;
-    vector<string>
-}

@@ -16,8 +16,11 @@ class Solution {
 
         bool notTaken = func(ind - 1, target, arr, dp);
         bool taken = false;
-
-        if(arr[ind] <= target)
+Thanks for going through my resume! I have a strong foundation in DSA, built through consistent practice on TUF and Striver sheets, solving 500+ problems across platforms. I regularly participate in Codeforces contests and currently have a rating of 1314 (Pupil), along with a 2★ rating on CodeChef (1405).
+Here’s my GitHub: https://github.com/ShubhamKrishna0
+You’ll also find projects like Twirl (AI-powered Text-to-3D CAD generator) and DraftWing (AI-powered Markdown app), where I applied both DSA and system design concepts.
+Best regards,
+Shubhamm 
             taken = func(ind - 1, target - arr[ind], arr, dp);
 
         return dp[ind][target] = notTaken || taken;

@@ -1,57 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Definition for a binary tree node.
+  struct TreeNode {
+      int data;
+      TreeNode *left;
+      TreeNode *right;
+      TreeNode(int val) : data(val), left(nullptr), right(nullptr) {}
+  };
 
-struct TreeNode {
-    int data;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int val) : data(val)  , left(nullptr) , right(nullptr) {}
-};
-
-class Solution {
+  class Solution {
     public:
-    int kthSmallest(TreeNode* root , int k) {
-        this->k = k;
-        this->result = -1;
-        inorder(root);
-        return result;
+    bool isBST (TreeNode* root) {
+        return validate(root, LONG_MIN, LONG_MAX);
     }
-    int kthLargest(TreeNode* root , int k) {
-        this->k = k;
-        this->result = -1;
-        reverse_inorder(root);
-        return result;
-    }
-
-    vector<int> kLargesSmall(TreeNode* root , int k) {
-        return {kthSmallest(root, k), kthLargest(root, k)};
-    }
-
     private:
-        int k;
-        int result;
+    bool validate (TreeNode* node , long min , long max) {
+
+        if(node == nullptr)
+            return true;
+        
+        if(node-> data <= min || node-> data  >= max)
+            return false;
+
+        bool leftIsValid = validate(node->left, min, node->data);
+
+        bool rightIsValid = validate(node->right, node->data, max);
+
+        return leftIsValid && rightIsValid;
+    }
+  };
+
+  /*
+          10   (-∞ , +∞)
+       /  \
+ (-∞,10)   (10,+∞)
+     5
+    / \
+(-∞,5) (5,10)
+   2     7
 
 
-        void inorder(TreeNode* node) {
-            if(node != nullptr) {
-                inorder(node->left);
-                if(--k == 0) {
-                    result = node->data;
-                    return;
-                }
-                inorder(node->right);
-            }
-        }
+   Step-by-Step Execution
 
-        void reverse_inorder(TreeNode* node) {
-            if(node != nullptr) {
-                reverse_inorder(node->right);
-                if(--k == 0) {
-                    result = node->data;
-                    return;
-                }
-                reverse_inorder(node->left);
-            }
-        }
-};
+validate(10, -∞, +∞) ✅
+
+Go left: validate(5, -∞, 10) ✅
+
+Left of 5: validate(2, -∞, 5) ✅
+
+Right of 5: validate(7, 5, 10) ✅
+
+Go right: validate(15, 10, +∞) ✅
+
+Right of 15: validate(20, 15, +∞) ✅
+  */

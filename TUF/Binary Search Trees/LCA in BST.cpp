@@ -16,7 +16,7 @@ class Solution  {
         if(!root) {
             return false;
         }
-        // add the current node value to the apth vector
+        // add the current node value to the path vector
         path.push_back(root->data);
         
         //

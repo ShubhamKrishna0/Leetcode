@@ -1,87 +1,68 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution
-{
+class Solution {
 private:
-    // Function to perform BFS traversal
-    bool bfs(int i, vector<int> adj[],
-             vector<bool> &visited)
-    {
 
-        // Queue to store {node, parent}
+    // Function to perform BFS to detect cycle in an undirected graph
+    bool bfs(int start, vector<int> adj[], vector<bool> &visited) {
+
+        // Queue will store {node, parent}
         queue<pair<int, int>> q;
 
-        /* Push initial node in queue
-        with no one as parent */
-        q.push({i, -1});
+        // Push starting node with parent = -1
+        q.push({start, -1});
+        visited[start] = true;
 
-        // Mark the node as visited
-        visited[i] = true;
+        // Process until queue becomes empty
+        while (!q.empty()) {
 
-        // Until the queue is empty
-        while (!q.empty())
-        {
-
-            // Get the node and its parent
+            // Get current node and its parent
             int node = q.front().first;
             int parent = q.front().second;
             q.pop();
 
-            // Traverse all the neighbors
-            for (auto it : adj[node])
-            {
+            // Traverse all adjacent nodes
+            for (auto neighbour : adj[node]) {
 
-                // If not visited
-                if (!visited[it])
-                {
-
-                    // Mark the node as visited
-                    visited[it] = true;
-
-                    /* Push the new node in queue
-                    with curr node as parent */
-                    q.push({it, node});
+                // If neighbour is not visited → visit it
+                if (!visited[neighbour]) {
+                    visited[neighbour] = true;
+                    q.push({neighbour, node});
                 }
 
-                /* Else if it is visited with some
-                different parent a cycle is detected */
-                else if (it != parent)
+                // If neighbour is already visited and it's NOT the parent
+                // then an undirected cycle is detected
+                else if (neighbour != parent) {
                     return true;
+                }
             }
         }
-        return false;
+        return false;  // No cycle found via BFS
     }
 
 public:
-    // Function to detect cycle in an undirected graph.
-    bool isCycle(int V, vector<int> adj[])
-    {
+    bool isCycle(int V, vector<int> adj[]) {
 
         // Visited array
         vector<bool> visited(V, false);
 
-        /* Variable to store if
-        there is a cycle detected */
-        bool ans = false;
+        // Check every component (in case graph is disconnected)
+        for (int i = 0; i < V; i++) {
 
-        // Start Traversal from every unvisited node
-        for (int i = 0; i < V; i++)
-        {
-            if (!visited[i])
-            {
+            // Run BFS only on unvisited nodes
+            if (!visited[i]) {
 
-                // Start BFS traversal and update result
-                ans = bfs(i, adj, visited);
-
-                // Break if a cycle is detected
-                if (ans)
-                    break;
+                // If BFS detects a cycle → return true
+                if (bfs(i, adj, visited)) {
+                    return true;
+                }
             }
         }
-        return ans;
+        return false; // No cycle in any component
     }
 };
+
 
 int main()
 {
